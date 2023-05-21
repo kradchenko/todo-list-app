@@ -5,7 +5,7 @@ import { ReactComponent as RemoveIcon } from 'assets/bin.svg';
 import { ReactComponent as EditIcon } from 'assets/edit.svg';
 import { z } from 'zod';
 
-import { useTodoListSelector } from 'utils/hooks/useToDoListSelector';
+import { useTodoListSelector } from 'context/useToDoListSelector';
 
 import { ConfirmationDialog } from '../ui/ConfirmationDialog';
 

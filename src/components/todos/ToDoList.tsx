@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Navigate, useParams } from 'react-router';
 
-import { useTodoListSelector } from 'utils/hooks/useToDoListSelector';
+import { useTodoListSelector } from 'context/useToDoListSelector';
 
 import { ToDoListTitleContainer } from './ToDoListTitleContainer';
 import { ToDosContainer } from './ToDosContainer';

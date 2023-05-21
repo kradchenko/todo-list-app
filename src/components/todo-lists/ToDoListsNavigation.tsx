@@ -1,4 +1,4 @@
-import { useTodoListSelector } from 'hooks/useToDoListSelector';
+import { useTodoListSelector } from 'context/useToDoListSelector';
 
 import { CreateToDoListButton } from '../ui/CreateToDoListButton';
 

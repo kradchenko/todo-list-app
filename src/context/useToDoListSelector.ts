@@ -1,5 +1,5 @@
 import { useContext } from 'react';
 
-import { ToDoListSelectorContext } from 'context/ToDoListSelectorContext';
+import { ToDoListSelectorContext } from './ToDoListSelectorContext';
 
 export const useTodoListSelector = () => useContext(ToDoListSelectorContext);

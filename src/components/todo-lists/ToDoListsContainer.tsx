@@ -1,4 +1,4 @@
-import { useTodoListSelector } from 'utils/hooks/useToDoListSelector';
+import { useTodoListSelector } from 'context/useToDoListSelector';
 
 import { NavItem } from '../ui/NavItem';
 
