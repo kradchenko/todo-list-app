@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 import { useTodoListSelector } from 'utils/hooks/useToDoListSelector';
 
-import { ConfirmationDialog } from './ui/ConfirmationDialog';
+import { ConfirmationDialog } from '../ui/ConfirmationDialog';
 
 interface ToDoListTitleContainerProps {
     toDoListId: number;
@@ -41,26 +41,31 @@ export const ToDoListTitleContainer = ({ toDoListId, title }: ToDoListTitleConta
     if (!isEditing) {
         return (
             <div className="flex items-center h-12">
-                <span className="text-3xl w-full max-w-lg">{title}</span>
-                <EditIcon
-                    width={28}
-                    height={28}
+                <span className="text-3xl flex-1">{title}</span>
+                <button
                     onClick={() => setIsEditing(true)}
-                    className="hover:text-purple-400 cursor-pointer"
-                />
-                <RemoveIcon
-                    width={28}
-                    height={28}
-                    className="hover:text-red-500 cursor-pointer ml-5"
+                    className="hover:text-purple-400 transition-all duration-200 ease-in-out"
+                >
+                    <EditIcon width={28} height={28} />
+                </button>
+                <button
+                    className="hover:text-red-500 ml-5 transition-all duration-200 ease-in-out"
                     onClick={() => setIsDelModalOpen(true)}
-                />
+                >
+                    <RemoveIcon width={28} height={28} />
+                </button>
                 <ConfirmationDialog
-                    title={`Do you really want to delete ${title}?`}
+                    title={
+                        <div>
+                            Do you really want to delete{' '}
+                            <span className="text-purple-500">{title}</span>?
+                        </div>
+                    }
                     description=" Are you sure you want to delete this ToDo List? All of your data from this ToDo List
                     will be permanently removed. This action cannot be undone."
                     isOpen={isDelModalOpen}
                     onClose={() => setIsDelModalOpen(false)}
-                    onSuccess={() => handleTodoListRemove(toDoListId)}
+                    onConfirm={() => handleTodoListRemove(toDoListId)}
                 />
             </div>
         );
@@ -84,7 +89,7 @@ export const ToDoListTitleContainer = ({ toDoListId, title }: ToDoListTitleConta
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="flex">
             <input
-                className="text-3xl border-b hover:border-purple-400 focus:border-purple-500 outline-none bg-transparent w-full max-w-lg text-gray-400 focus:text-white"
+                className="text-3xl border-b hover:border-purple-400 focus:border-purple-500 outline-none bg-transparent flex-1 text-gray-400 focus:text-white"
                 {...register('title')}
             />
             <button type="button" className="btn btn-error ml-10" onClick={handleCancel}>

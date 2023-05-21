@@ -4,6 +4,7 @@ import { Navigate, useParams } from 'react-router';
 import { useTodoListSelector } from 'utils/hooks/useToDoListSelector';
 
 import { ToDoListTitleContainer } from './ToDoListTitleContainer';
+import { ToDosContainer } from './ToDosContainer';
 
 export const ToDoList = () => {
     const { todoLists, isLoading } = useTodoListSelector();
@@ -26,11 +27,14 @@ export const ToDoList = () => {
     return (
         <div className="p-10">
             {todoList ? (
-                <ToDoListTitleContainer
-                    key={`todolist-title-input-${todoList.code}`}
-                    title={todoList.title}
-                    toDoListId={todoList.id}
-                />
+                <>
+                    <ToDoListTitleContainer
+                        key={`todolist-title-input-${todoList.code}`}
+                        title={todoList.title}
+                        toDoListId={todoList.id}
+                    />
+                    <ToDosContainer toDoListId={todoList.id} />
+                </>
             ) : (
                 <div>Problem occured while fetching ToDo List</div>
             )}

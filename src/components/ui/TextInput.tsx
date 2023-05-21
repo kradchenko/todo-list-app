@@ -1,16 +1,18 @@
 import { useFormContext } from 'react-hook-form';
+import classNames from 'classnames';
 
 interface TextInputProps {
     name: string;
     label: string;
     placeholder: string;
+    className?: string;
 }
 
-export const TextInput = ({ name, label, placeholder }: TextInputProps) => {
+export const TextInput = ({ name, label, placeholder, className }: TextInputProps) => {
     const { register } = useFormContext();
 
     return (
-        <div className="form-control w-full max-w-xs">
+        <div className={classNames('form-control', className)}>
             <label htmlFor={name}>
                 <span className="label-text">{label}</span>
             </label>
@@ -19,7 +21,7 @@ export const TextInput = ({ name, label, placeholder }: TextInputProps) => {
                 name={name}
                 placeholder={placeholder}
                 type="text"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full"
             />
         </div>
     );

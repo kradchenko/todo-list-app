@@ -1,15 +1,17 @@
 import { useFormContext } from 'react-hook-form';
+import classNames from 'classnames';
 
 interface DateTimePickerProps {
     name: string;
     label: string;
+    className?: string;
 }
 
-export const DateTimePicker = ({ name, label }: DateTimePickerProps) => {
+export const DateTimePicker = ({ name, label, className }: DateTimePickerProps) => {
     const { register } = useFormContext();
 
     return (
-        <div className="form-control w-full max-w-xs">
+        <div className={classNames('form-control', className)}>
             <label htmlFor={name}>
                 <span className="label-text">{label}</span>
             </label>
@@ -17,7 +19,7 @@ export const DateTimePicker = ({ name, label }: DateTimePickerProps) => {
                 {...register(name)}
                 name={name}
                 type="datetime-local"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full"
             />
         </div>
     );

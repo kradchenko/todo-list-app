@@ -6,7 +6,7 @@ interface ConfirmationDialogProps {
     description: string | ReactNode;
     isOpen: boolean;
     onClose: () => void;
-    onSuccess: () => void;
+    onConfirm: () => void;
 }
 
 export const ConfirmationDialog = ({
@@ -14,7 +14,7 @@ export const ConfirmationDialog = ({
     description,
     isOpen,
     onClose,
-    onSuccess,
+    onConfirm,
 }: ConfirmationDialogProps) => {
     return (
         <Dialog open={isOpen} onClose={onClose} className="relative z-50">
@@ -27,11 +27,11 @@ export const ConfirmationDialog = ({
                         {description}
                     </Dialog.Description>
 
-                    <div className="flex justify-between">
-                        <button type="button" className="btn btn-success" onClick={onSuccess}>
+                    <div className="flex justify-end">
+                        <button type="button" className="btn btn-success" onClick={onConfirm}>
                             Confirm
                         </button>
-                        <button type="button" className="btn btn-error" onClick={onClose}>
+                        <button type="button" className="btn btn-error ml-5" onClick={onClose}>
                             Cancel
                         </button>
                     </div>

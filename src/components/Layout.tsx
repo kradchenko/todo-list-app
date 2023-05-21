@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { ToDoListsNavigation } from './ToDoListsNavigation';
+import { ToDoListsNavigation } from './todo-lists/ToDoListsNavigation';
 
 const SideBar = () => (
     <div className="w-72 bg-gradient-to-b from-purple-800 via-violet-900 to-purple-800 flex flex-col py-10 px-5">

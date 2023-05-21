@@ -2,7 +2,7 @@ import { createContext, ReactNode } from 'react';
 import { useNavigate } from 'react-router';
 import { useQuery } from '@tanstack/react-query';
 
-import { TitleInputForm } from 'components/ToDoListTitleContainer';
+import { TitleInputForm } from 'components/todos/ToDoListTitleContainer';
 import { ToDoList } from 'schema';
 import { api } from 'utils/api';
 

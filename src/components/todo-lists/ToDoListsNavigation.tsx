@@ -1,6 +1,7 @@
 import { useTodoListSelector } from 'hooks/useToDoListSelector';
 
-import { CreateToDoListButton } from './ui/CreateToDoListButton';
+import { CreateToDoListButton } from '../ui/CreateToDoListButton';
+
 import { ToDoListsContainer } from './ToDoListsContainer';
 
 export const ToDoListsNavigation = () => {
