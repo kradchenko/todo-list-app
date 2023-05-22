@@ -1,13 +1,13 @@
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import { Navigate, useParams } from 'react-router';
 
-import { useTodoListSelector } from 'context/useToDoListSelector';
+import { ToDoListSelectorContext } from 'context/ToDoListSelectorContext';
 
 import { ToDoListTitleContainer } from './ToDoListTitleContainer';
 import { ToDosContainer } from './ToDosContainer';
 
 export const ToDoList = () => {
-    const { todoLists, isLoading } = useTodoListSelector();
+    const { todoLists, isLoading } = useContext(ToDoListSelectorContext);
 
     const { id: todoCode } = useParams<{ id: string }>();
 

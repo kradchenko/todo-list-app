@@ -1,4 +1,6 @@
-import { useTodoListSelector } from 'context/useToDoListSelector';
+import { useContext } from 'react';
+
+import { ToDoListSelectorContext } from 'context/ToDoListSelectorContext';
 
 import { NavItem } from '../ui/NavItem';
 
@@ -9,7 +11,7 @@ const ToDoListsHeader = () => (
 );
 
 export const ToDoListsContainer = () => {
-    const { isLoading, todoLists: todosLists } = useTodoListSelector();
+    const { isLoading, todoLists: todosLists } = useContext(ToDoListSelectorContext);
 
     if (isLoading) {
         return <div className="flex justify-center text-white">Loading...</div>;

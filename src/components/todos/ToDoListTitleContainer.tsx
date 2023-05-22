@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ReactComponent as RemoveIcon } from 'assets/bin.svg';
 import { ReactComponent as EditIcon } from 'assets/edit.svg';
 import { z } from 'zod';
 
-import { useTodoListSelector } from 'context/useToDoListSelector';
+import { ToDoListSelectorContext } from 'context/ToDoListSelectorContext';
 
 import { ConfirmationDialog } from '../ui/ConfirmationDialog';
 
@@ -21,7 +21,7 @@ const TitleInputSchema = z.object({
 export type TitleInputForm = z.infer<typeof TitleInputSchema>;
 
 export const ToDoListTitleContainer = ({ toDoListId, title }: ToDoListTitleContainerProps) => {
-    const { handleRenameToDoList, handleTodoListRemove } = useTodoListSelector();
+    const { handleRenameToDoList, handleTodoListRemove } = useContext(ToDoListSelectorContext);
 
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const [isDelModalOpen, setIsDelModalOpen] = useState<boolean>(false);

@@ -1,11 +1,13 @@
-import { useTodoListSelector } from 'context/useToDoListSelector';
+import { useContext } from 'react';
+
+import { ToDoListSelectorContext } from 'context/ToDoListSelectorContext';
 
 import { CreateToDoListButton } from '../ui/CreateToDoListButton';
 
 import { ToDoListsContainer } from './ToDoListsContainer';
 
 export const ToDoListsNavigation = () => {
-    const { handleToDoListCreate } = useTodoListSelector();
+    const { handleToDoListCreate } = useContext(ToDoListSelectorContext);
 
     return (
         <nav className="flex flex-col flex-1 overflow-hidden">
